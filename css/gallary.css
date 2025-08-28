@@ -1,0 +1,422 @@
+/* Gallery Section Styles */
+ .slider {
+      position: relative;
+      overflow: hidden;
+      height: 60vh;
+      width: 100%;
+    }
+    .slider h2{
+      position: absolute;
+      top: 30%;
+      left: 40%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 3.5rem;
+      z-index: 10;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+    .slider span{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 1.5rem;
+      font-style: italic;
+      z-index: 10;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+    .slides {
+      display: flex;
+      width: 500%;
+      height: 100%;
+      animation: slide 20s infinite;
+    }
+    .slides img {
+      margin-top: 5rem;
+      width: 90%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @keyframes slide {
+      0% {margin-left: 0;}
+      20% {margin-left: 0;}
+      25% {margin-left: -100%;}
+      40% {margin-left: -100%;}
+      45% {margin-left: -200%;}
+      60% {margin-left: -200%;}
+      65% {margin-left: -300%;}
+      80% {margin-left: -300%;}
+      85% {margin-left: -400%;}
+      100% {margin-left: -400%;}
+    }
+
+#our-gallary {
+
+    padding: 3rem  4rem;
+    background: #f9f9f9;
+}
+
+
+
+#our-gallary h3{
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+  }
+#our-gallary h4{
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+  }
+
+#our-gallary p {
+  text-align: center;
+  color: #444;
+  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ /* Video Section */
+.video-section {
+  padding: 30px 20px;
+  background: #eef5f0;
+  text-align: center;
+}
+.video-section video {
+  width: 80%;
+  max-width: 700px;
+  border-radius: 8px;
+}
+/* Gallery Grid Styles */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 16px rgba(0,91,46,0.07);
+  background: #fff;
+  transition: var(--transition);
+  position: relative;
+  cursor: pointer;
+  
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(.4,2,.3,1), filter 0.3s;
+  border-radius: 1.2rem;
+  filter: brightness(0.97) saturate(1.1);
+}
+
+.gallery-item:hover,
+.gallery-item:focus-within {
+  box-shadow: 0 8px 32px rgba(0,91,46,0.13);
+}
+
+.gallery-item:hover img,
+.gallery-item:focus-within img {
+  transform: scale(1.07) rotate(-1deg);
+  filter: brightness(1.04) saturate(1.2);
+  
+}
+
+/* Optional: subtle overlay on hover */
+.gallery-item::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(28,148,88,0.08) 0%, rgba(236,186,21,0.07) 100%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  border-radius: 1.2rem;
+}
+.gallery-item:hover::after,
+.gallery-item:focus-within::after {
+  opacity: 1;
+}
+
+/* Fullscreen Modal Styles */
+.gallery-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s;
+}
+
+.gallery-modal.active {
+  display: flex;
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.gallery-modal img {
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  background: #fff;
+  object-fit: contain;
+}
+
+.gallery-modal .close-modal {
+  position: absolute;
+  top: 2.5rem;
+  right: 10%;
+  font-size: 2.5rem;
+  color: #fff;
+  background: rgba(158, 255, 3, 0.568);
+  border: none;
+  border-radius: 50%;
+  width: 2.7rem;
+  height: 2.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10001;
+  transition: var(--transition);
+  
+}
+.gallery-modal .close-modal:hover {
+  background: rgba(233, 179, 3, 0.774);
+}
+.gallery-modal .next-modal {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  font-size: 3rem;
+  color: #fff;
+  background: rgba(3, 102, 56, 0.568);
+  border: none;
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10001;
+  transition: var(--transition);
+  transform: translateY(-50%);
+}
+.gallery-modal .next-modal:hover {
+  background: rgba(233, 179, 3, 0.774);
+}
+.gallery-modal .previous-modal {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  font-size: 3rem;
+  color: #fff;
+  background: rgba(3, 102, 56, 0.568);
+  border: none;
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10001;
+  transition: var(--transition);
+  transform: translateY(-50%);
+}
+.gallery-modal .previous-modal:hover {
+  background: rgba(233, 179, 3, 0.774);
+}
+
+
+
+/* WhatsApp Floating Button Styles */
+.whatsapp-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99999;
+}
+.whatsapp-widget-btn {
+  background: #25d366;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.3rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.whatsapp-widget-btn:hover {
+  background: #1ebe57;
+}
+
+
+/* Responsive adjustments */
+@media  (max-width: 1024px) {
+  .slider {
+      height: 45vh;
+    }
+
+    .slider h2{
+      font-size: 3rem;
+      top: 37%;
+      
+    }
+    .slider span{
+      font-size: 1.2rem;
+      top: 55%;
+    }
+   
+}
+
+@media (max-width: 900px) {
+  #our-gallary h2{
+      font-size: 2.5rem;
+      margin-top: 2rem;
+
+  }
+  .slider {
+    height: 40vh;
+  }
+
+   .slides img {
+      margin-top: 1rem;
+      
+    }
+    .slider h2{
+      text-align: center;
+      width: 100%;
+      font-size: 2.5rem;
+      top: 37%;
+      
+    }
+    .slider span{
+      text-align: center;
+      width: 100%;
+      font-size: 1.2rem;
+      top: 55%;
+    }
+
+  #our-gallary p {
+    font-size: 1.3rem;
+    text-align: start;
+    margin: 0 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+  .gallery-item img {
+    height: 160px;
+  }
+  
+}
+@media (max-width: 600px) {
+  .whatsapp-widget {
+    bottom: 16px;
+    right: 16px;
+  }
+  .whatsapp-widget-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 1.6rem;
+  }
+
+  #our-gallary {
+    padding: 1.5rem 0 2rem 0;
+  }
+  .slider {
+    height: 30vh;
+  }
+  .slides img {
+    width: 105%;
+  }
+
+  .slider h2{
+      font-size: 2rem;
+      
+      
+    }
+    .slider span{
+      font-size: 1.2rem;
+      line-height: 1.4rem;
+    }
+  #our-gallary p {
+    line-height: 1.5rem;
+  }
+  .gallery-grid {
+    gap: 0.7rem;
+    padding: 0 0.2rem;
+  }
+  .gallery-item img {
+    height: 140px;
+  }
+  .gallery-modal .close-modal {
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    width: 2rem;
+    height: 2rem;
+  }
+  .gallery-modal .next-modal,
+  .gallery-modal .previous-modal {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 2rem;
+  }
+  .video-section video {
+    width: 100%;
+  }
+}
+
+@media (max-width: 350px) {
+  .slider h2{
+    font-size: 1.9rem;
+      
+      
+  }
+  .slider span{
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+  }
+
+
+
+}
