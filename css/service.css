@@ -41,7 +41,7 @@ body {
 .service_hero{
   display: flex;
   
-  background-image: url(/image/about_gb.jpg);
+  background-image: url(../image/about_gb.jpg);
   background-repeat: no-repeat;
   width: 100%;
   height: 70vh;
