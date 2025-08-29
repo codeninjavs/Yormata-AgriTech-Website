@@ -986,7 +986,7 @@ footer {
 }
 footer .footer_container{
     width: 100%;
-    background-image: url(/image/contactbg.jpg);
+    background-image: url(../image/contactbg.jpg);
     background-size: cover;
      
 }
